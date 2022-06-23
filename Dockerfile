@@ -4,7 +4,7 @@ WORKDIR /app
 
 RUN pip install Cython		       
 RUN apt-get update && \
-    apt-get upgrade && \
+    apt-get upgrade -y && \
     apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
     apt-utils \
