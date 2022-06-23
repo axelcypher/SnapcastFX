@@ -4,8 +4,11 @@ WORKDIR /app
 
 RUN pip install Cython		       
 RUN apt-get update && \
+    apt-get upgrade && \
+    apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
     apt-utils \
+    squeezelite \
     gcc \
     git \
     xmltoman \
@@ -50,8 +53,6 @@ RUN echo '*' > /etc/mdns.allow \
 RUN apt-get install -y wget \
                        libavahi-client3 \
                        libavahi-common3
-
-RUN apt-get install -y squeezelite 
 
 COPY setup-files/ /app/
 RUN chmod a+wrx /app/*
